@@ -10,6 +10,8 @@ class SentimentProcessor:
     def get_data(self):
         reddit_retriever = RedditRetriever()
         twitter_retriever = TwitterRetriever()
+        
+        reddit_retriever.get_data(subreddit='nba')
 
     def analyze_data(self):
         pass
