@@ -4,14 +4,14 @@ from app.retrievers.twitter_retriever import TwitterRetriever
 
 class SentimentProcessor:
 
-    def __init__(self):
-        pass
+    def __init__(self, reddit_submission_link):
+        self.reddit_submission_link = reddit_submission_link
 
     def get_data(self):
         reddit_retriever = RedditRetriever()
-        twitter_retriever = TwitterRetriever()
+        # twitter_retriever = TwitterRetriever()
         
-        reddit_retriever.get_data(subreddit='nba')
+        reddit_retriever.get_data(self.reddit_submission_link)
 
     def analyze_data(self):
         pass

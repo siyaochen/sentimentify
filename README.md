@@ -12,5 +12,5 @@ First obtain a `client_id`, `client_secret` by creating an app on Reddit. Then c
 ```
 Run this program by entering this in your command line:
 ```
-python3 sentimentify.py
+python3 sentimentify.py <reddit_submission_link>
 ```
