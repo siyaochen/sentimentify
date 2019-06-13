@@ -9,9 +9,7 @@ class SentimentProcessor:
 
     def get_data(self):
         reddit_retriever = RedditRetriever()
-        # twitter_retriever = TwitterRetriever()
-        
-        reddit_retriever.get_data(self.reddit_submission_link)
+        comment_list = reddit_retriever.get_data(self.reddit_submission_link)
 
     def analyze_data(self):
         pass
