@@ -7,7 +7,7 @@ class RedditRetriever:
 
     LOGIN_CREDENTIALS_FILE_PATH = 'assets/login_info/reddit_login.json'
 
-    REPLACE_NO_SPACE = re.compile("[.;:!\'?,\"()\[\]]")
+    REPLACE_NO_SPACE = re.compile("[.;:!\'?,\"()\[\]#]")
     REPLACE_WITH_SPACE = re.compile("(<br\s*/><br\s*/>)|(\-)|(\/)")
 
     def __init__(self, data_size=100):
