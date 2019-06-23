@@ -1,6 +1,6 @@
 import argparse
 
-from app.sentiment_processor import SentimentProcessor
+from app.sentiment_app import SentimentApp
 
 
 def parse_args():
@@ -10,5 +10,5 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-    sp = SentimentProcessor(args.reddit_submission_link)
+    sp = SentimentApp(args.reddit_submission_link)
     sp.run()
