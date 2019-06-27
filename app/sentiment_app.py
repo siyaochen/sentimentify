@@ -1,3 +1,4 @@
+from app.obj.result import Result
 from app.processors.sentiment_processor import SentimentProcessor
 from app.retrievers.reddit_retriever import RedditRetriever
 from app.retrievers.twitter_retriever import TwitterRetriever
@@ -15,8 +16,9 @@ class SentimentApp:
 
     def analyze_data(self, comment_list):
         sentiment_processor = SentimentProcessor()
-        sentiment_processor.process_sentiment(comment_list)
+        result = sentiment_processor.process_sentiment(comment_list)
+        return result
 
     def run(self):
         comments = self.get_data()
-        self.analyze_data(comments)
+        result = self.analyze_data(comments)

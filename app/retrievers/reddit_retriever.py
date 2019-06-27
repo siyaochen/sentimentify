@@ -35,5 +35,6 @@ class RedditRetriever:
     def get_data(self, submission_link):
         submission = self.get_submission(submission_link)
         submission.comments.replace_more(limit=None)
-        processed_comments = self.tokenize_comments(submission.comments.list())
+        # processed_comments = self.tokenize_comments(submission.comments.list())
+        processed_comments = [comment.body for comment in submission.comments.list()]
         return processed_comments
