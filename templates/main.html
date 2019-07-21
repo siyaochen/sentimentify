@@ -3,9 +3,10 @@
 {% block body %}
     <div class="container">
         <div class="jumbotron text-center">
-            <form>
+            <form method='POST'>
                 <p class="lead text-center">Enter your article here:</p>
-                <input id="user-input" type="text" class="form-control">
+                <input type="text" class="form-control" name="url">
+                <input type="submit" class="btn btn-secondary mt-2">
             </form>
         </div>
     </div>

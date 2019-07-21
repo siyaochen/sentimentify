@@ -22,3 +22,4 @@ class SentimentApp:
     def run(self):
         comments = self.get_data()
         result = self.analyze_data(comments)
+        return result
