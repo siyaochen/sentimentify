@@ -2,8 +2,21 @@
 
 {% block body %}
     <div class="container">
-        <div class="jumbotron text-center">
-            <p>results!</p>
+        <div class="jumbotron text-left">
+            <h5>Compound Score: {{ result.compound_score[0] }}, which is {{ result.compound_score[1] }}.</h5>
+            <br>
+            <h5>Most positive comments:</h5>
+            <ul>
+            {% for comment in result.most_positive %}
+                <li>"{{ comment }}", which has a score of {{ result.most_positive['comment'] }}</li>
+            {% endfor %}
+            </ul>
+            <h5>Most negative comments:</h5>
+            <ul>
+            {% for comment in result.most_negative %}
+                <li>"{{ comment }}", which has a score of {{ result.most_negative['comment'] }}</li>
+            {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock %}
