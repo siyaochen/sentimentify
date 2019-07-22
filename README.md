@@ -10,7 +10,7 @@ Run this command to set up dependencies:
 $ pip install -r requirements.txt
 ```
 Obtain your Reddit `client_id`, `client_secret` by creating an app on Reddit. Then create a JSON file containing your access token information and place it in this path:  `/assets/login_info/reddit_login.json`. The file should look like this:
-```
+```json
 {
     "client_id": <client_id>,
     "client_secret": <client_secret>,
@@ -19,7 +19,7 @@ Obtain your Reddit `client_id`, `client_secret` by creating an app on Reddit. Th
 ```
 ### Running the program
 Run this program by entering this in your command line:
-```
+```sh
 $ export FLASK_APP=sentimentify.py
-# flask run
+$ flask run
 ```
