@@ -7,14 +7,14 @@
             <br>
             <h5>Most positive comments:</h5>
             <ul>
-            {% for comment in result.most_positive %}
-                <li>"{{ comment }}", which has a score of {{ result.most_positive['comment'] }}</li>
+            {% for (comment, score) in result.most_positive.items() %}
+                <li>"{{ comment }}", which has a score of {{ score }}</li>
             {% endfor %}
             </ul>
             <h5>Most negative comments:</h5>
             <ul>
-            {% for comment in result.most_negative %}
-                <li>"{{ comment }}", which has a score of {{ result.most_negative['comment'] }}</li>
+            {% for (comment, score) in result.most_negative.items() %}
+                <li>"{{ comment }}", which has a score of {{ score }}</li>
             {% endfor %}
             </ul>
         </div>

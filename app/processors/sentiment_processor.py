@@ -69,4 +69,5 @@ class SentimentProcessor:
         result = Result()
         result.compound_score = self.get_compound_score(comment_list)
         result.most_positive = self.get_most_positive(comment_list)
+        result.most_negative = self.get_most_negative(comment_list)
         return result

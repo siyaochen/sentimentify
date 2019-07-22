@@ -15,12 +15,8 @@ def main():
         url = request.form['url']
         sp = SentimentApp(url)
         result = sp.run()
-        print(result.compound_score)
-        print(result.most_positive)
-        print(result.most_negative)
         return render_template('result.html', result=result)
     return render_template('main.html')
 
 if __name__ == '__main__':
-    app.debug = True
     app.run()
