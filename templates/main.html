@@ -7,6 +7,11 @@
                 <p class="lead text-center">Enter your Reddit article link here:</p>
                 <input type="text" class="form-control" name="url">
                 <input type="submit" class="btn btn-secondary mt-3">
+                {% if error %}
+                    <div class="alert alert-danger mt-3" role="alert">
+                        <strong>Error: </strong>{{error}}
+                    </div>
+                {% endif %}
             </form>
         </div>
     </div>

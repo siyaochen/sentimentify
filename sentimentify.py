@@ -11,10 +11,13 @@ app.config.from_object(Config)
 def main():
     if request.method == 'POST':
         url = request.form['url']
-        sp = SentimentApp(url)
-        result = sp.run()
-        return render_template('result.html', result=result)
-    return render_template('main.html')
+        try:
+            sp = SentimentApp(url)
+            result = sp.run()
+            return render_template('result.html', result=result)
+        except:
+            return render_template('main.html', error='Not a valid Reddit URL.')
+    return render_template('main.html', error=None)
 
 if __name__ == '__main__':
     app.run()

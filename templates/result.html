@@ -8,13 +8,13 @@
             <h5>Most positive comments:</h5>
             <ul>
             {% for (comment, score) in result.most_positive.items() %}
-                <li>"{{ comment }}", which has a score of {{ score }}</li>
+                <li>"{{ comment }}", which has a score of <strong>{{ score }}</strong></li>
             {% endfor %}
             </ul>
             <h5>Most negative comments:</h5>
             <ul>
             {% for (comment, score) in result.most_negative.items() %}
-                <li>"{{ comment }}", which has a score of {{ score }}</li>
+                <li>"{{ comment }}", which has a score of <strong>{{ score }}</strong></li>
             {% endfor %}
             </ul>
         </div>
