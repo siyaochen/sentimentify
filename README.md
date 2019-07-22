@@ -1,17 +1,25 @@
 # sentimentify
-### Dependencies
-Run these commands to install dependencies:
+### Setting up dependencies
+Run these commands to create and run your virtual environment:
+```sh
+$ python3 -m venv venv
+$ source venv/bin/activate
 ```
-pip install praw
-pip install tweepy
-pip install vaderSentiment
+Run this command to set up dependencies:
+```sh
+$ pip install -r requirements.txt
 ```
-### Running this program
-First obtain a `client_id`, `client_secret` by creating an app on Reddit. Then create a JSON file containing only `client_id`, `client_secret`, and a `user_agent` that you define yourself and place it in this path:
+Obtain your Reddit `client_id`, `client_secret` by creating an app on Reddit. Then create a JSON file containing your access token information and place it in this path:  `/assets/login_info/reddit_login.json`. The file should look like this:
+```json
+{
+    "client_id": <client_id>,
+    "client_secret": <client_secret>,
+    "user_agent": "sentimentify v1.0 by /u/sentimentify_bot"
+}
 ```
-/assets/login_info/reddit_login.json
-```
+### Running the program
 Run this program by entering this in your command line:
-```
-python3 sentimentify.py <reddit_submission_link>
+```sh
+$ export FLASK_APP=sentimentify.py
+$ flask run
 ```
