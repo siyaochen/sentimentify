@@ -1,5 +1,3 @@
-import json
-
 from flask import Flask, render_template, request
 
 from app.sentiment_app import SentimentApp
