@@ -10,12 +10,14 @@ app.config.from_object(Config)
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == 'POST':
-        url = request.form['url']
+        url = request.form.get('url')
+        custom_classifier = request.form.get('custom-classifier') != None
         try:
-            sp = SentimentApp(url)
+            sp = SentimentApp(url, custom_classifier)
             result = sp.run()
             return render_template('result.html', result=result)
-        except:
+        except Exception as e:
+            print(e)
             return render_template('main.html', error='Not a valid Reddit URL.')
     return render_template('main.html', error=None)
 
