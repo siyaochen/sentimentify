@@ -14,7 +14,7 @@ class SentimentProcessor:
         else:
             self.analyzer = SentimentIntensityAnalyzer()
 
-    def find_corresponding_sentiment(self, score):
+    def _find_corresponding_sentiment(self, score):
         if score <= -0.4:
             return 'extremely negative'
         elif score <= -0.25:
@@ -34,14 +34,14 @@ class SentimentProcessor:
         else:
             return 'extremely positive'
 
-    def get_compound_score(self, comment_list):
+    def _get_compound_score(self, comment_list):
         total_score = 0
         for comment in comment_list:
             total_score += self.analyzer.polarity_scores(comment)['compound']
         avg_score = total_score / len(comment_list)
-        return (avg_score, self.find_corresponding_sentiment(avg_score))
+        return (avg_score, self._find_corresponding_sentiment(avg_score))
 
-    def get_most_positive(self, comment_list):
+    def _get_most_positive(self, comment_list):
         num_top_comments = math.ceil(len(comment_list) / 20) if len(comment_list) < 100 else 5
         top_comments = {}
         for comment in comment_list:
@@ -55,7 +55,7 @@ class SentimentProcessor:
                     top_comments[comment] = score
         return top_comments
 
-    def get_most_negative(self, comment_list):
+    def _get_most_negative(self, comment_list):
         num_top_comments = math.ceil(len(comment_list) / 20) if len(comment_list) < 100 else 5
         top_comments = {}
         for comment in comment_list:
@@ -71,7 +71,7 @@ class SentimentProcessor:
 
     def process_sentiment(self, comment_list):
         result = Result()
-        result.compound_score = self.get_compound_score(comment_list)
-        result.most_positive = self.get_most_positive(comment_list)
-        result.most_negative = self.get_most_negative(comment_list)
+        result.compound_score = self._get_compound_score(comment_list)
+        result.most_positive = self._get_most_positive(comment_list)
+        result.most_negative = self._get_most_negative(comment_list)
         return result

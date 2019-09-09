@@ -7,13 +7,10 @@ class RedditRetriever:
 
     LOGIN_CREDENTIALS_FILE_PATH = 'assets/login_info/reddit_login.json'
 
-    REPLACE_NO_SPACE = re.compile(r'[.;:!\'?,\"()\[\]#~<>$%]')
-    REPLACE_WITH_SPACE = re.compile(r'(<br\s*/><br\s*/>)|(\-)|(\/)|(\n)')
-
     def __init__(self, data_size=100):
         self.data_size = data_size
 
-    def get_submission(self, submission_link):
+    def _get_submission(self, submission_link):
         with open(RedditRetriever.LOGIN_CREDENTIALS_FILE_PATH) as login_file:
             login_credentials = json.load(login_file)
         reddit = praw.Reddit(client_id=login_credentials['client_id'],
@@ -23,18 +20,8 @@ class RedditRetriever:
         submission = reddit.submission(url=submission_link)
         return submission
 
-    def tokenize_comments(self, comments):
-        all_comments = [RedditRetriever.REPLACE_NO_SPACE.sub('', comment.body.lower()) for comment in comments]
-        all_comments = [RedditRetriever.REPLACE_WITH_SPACE.sub(' ', comment) for comment in all_comments]
-        # Strip all emojis from comments
-        all_comments = [comment.encode('ascii', 'ignore').decode('ascii') for comment in all_comments]
-        # Strip all invalid values
-        all_comments = [comment for comment in all_comments if isinstance(comment, str)]
-        return all_comments
-
     def get_data(self, submission_link):
-        submission = self.get_submission(submission_link)
+        submission = self._get_submission(submission_link)
         submission.comments.replace_more(limit=None)
-        # processed_comments = self.tokenize_comments(submission.comments.list())
         processed_comments = [comment.body for comment in submission.comments.list()]
         return processed_comments
