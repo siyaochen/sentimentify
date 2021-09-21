@@ -3,12 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>Sentimentify</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"/>
     </head>
     <body>
-        <header class="bg-info text-white text-center p-3 mb-5">
-            <h4 class="display-4"><a href="/" class="display-4" style="text-decoration:none;color:whitesmoke">sentimentify</a></h4>
-        </header>
+        <div class="navbar-brand pt-4 m-0 bg-primary text-center text-white">
+            <p>Welcome to Sentimentify! This web app was created by Siyao Chen. You can check out the source code <a href="https://github.com/siyaochen/sentimentify" target="_blank" class="text-white">here</a>.</p>
+        </div>
+
+        <div class="container col-8 py-5">
+            <div class="pt-5">
+                <h1 class="display-4 fw-bold">How does Reddit feel about _______?</h1>
+            </div>
+        </div>
+        <!-- <div class="px-4 pt-5 my-5 col-8">
+            <h1 class="display-4 fw-bold">How does Reddit feel about _______?</h1>
+        </div> -->
+        
         {% block body %}
         {% endblock %}
     </body>
