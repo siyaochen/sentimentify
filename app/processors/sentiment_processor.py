@@ -69,9 +69,10 @@ class SentimentProcessor:
                     top_comments[comment] = score
         return top_comments
 
-    def process_sentiment(self, comment_list):
+    def process_sentiment(self, comment_list, url):
         result = Result()
         result.compound_score = self._get_compound_score(comment_list)
         result.most_positive = self._get_most_positive(comment_list)
         result.most_negative = self._get_most_negative(comment_list)
+        result.url = url
         return result

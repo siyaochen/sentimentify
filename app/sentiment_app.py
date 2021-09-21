@@ -16,7 +16,7 @@ class SentimentApp:
 
     def _analyze_data(self, comment_list):
         sentiment_processor = SentimentProcessor(custom=self.use_custom_classifier)
-        result = sentiment_processor.process_sentiment(comment_list)
+        result = sentiment_processor.process_sentiment(comment_list, self.reddit_submission_link)
         return result
 
     def run(self):

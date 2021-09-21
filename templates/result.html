@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <div class="container pt-5 col-8 border-top">
+    <div class="container pt-0 col-lg-8 col-12">
+        <div class="d-grid gap-2">
+            <button href="{{ result.url }}" class="btn btn-primary btn-lg mb-2">Link to Post</button>
+        </div>
+    </div>
+
+    <div class="container pt-5 col-lg-8 col-12">
         <div class="pt-2 pb-2 border border-primary rounded" style="border-width: 8px !important">
             <h1 class="display-1 fw-bold text-center">{{ result.compound_score[0] }}%</h1>
             <h1 class="display-5 fw-bold text-center">{{ result.compound_score[1] }}</h1>
