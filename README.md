@@ -1,6 +1,6 @@
 # sentimentify
 
-sentimentify.herokuapp.com
+[sentimentify.herokuapp.com]
 
 
 ## About this app
