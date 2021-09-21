@@ -39,13 +39,13 @@ class SentimentProcessor:
         for comment in comment_list:
             total_score += self.analyzer.polarity_scores(comment)['compound']
         avg_score = total_score / len(comment_list)
-        return (avg_score, self._find_corresponding_sentiment(avg_score))
+        return (round(avg_score * 100, 1), self._find_corresponding_sentiment(avg_score).upper())
 
     def _get_most_positive(self, comment_list):
         num_top_comments = math.ceil(len(comment_list) / 20) if len(comment_list) < 100 else 5
         top_comments = {}
         for comment in comment_list:
-            score = self.analyzer.polarity_scores(comment)['compound']
+            score = round(self.analyzer.polarity_scores(comment)['compound'] * 100, 1)
             if len(top_comments) < num_top_comments:
                 top_comments[comment] = score
             else:
@@ -59,7 +59,7 @@ class SentimentProcessor:
         num_top_comments = math.ceil(len(comment_list) / 20) if len(comment_list) < 100 else 5
         top_comments = {}
         for comment in comment_list:
-            score = self.analyzer.polarity_scores(comment)['compound']
+            score = round(self.analyzer.polarity_scores(comment)['compound'] * 100, 1)
             if len(top_comments) < num_top_comments:
                 top_comments[comment] = score
             else:
